@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="hi">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Happy Birthday Hetieee 🎀</title>
+  <meta name="theme-color" content="#ff74ad">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+  <!-- shared background -->
+  <div class="bg"></div>
+  <div class="bg-hearts"></div>
+  <canvas id="fx"></canvas>
+
+  <main id="stage">
+
+    <!-- ============ 0. INTRO ============ -->
+    <section class="scene scene-intro" id="intro">
+      <div class="stars" id="stars"></div>
+      <div class="wrap center">
+        <div class="moon">🌙</div>
+        <p class="kicker">ek chhota sa surprise sirf tumhare liye</p>
+        <h1 class="title-script glow" data-t>Happy Birthday<br><span class="big">{name}</span></h1>
+        <div class="countdown" id="countdown"></div>
+        <button class="gift" id="openGift" aria-label="Surprise kholo">
+          <span class="gift-emoji">🎁</span>
+          <span class="gift-text">Tap karke kholo</span>
+        </button>
+        <p class="hint light">🎧 Headphones laga lo aur sound on rakhna</p>
+      </div>
+    </section>
+
+    <!-- ============ 1. WELCOME ============ -->
+    <section class="scene" id="welcome">
+      <div class="wrap center">
+        <div class="bear-slot" id="welcomeBear"></div>
+        <div class="bubble" id="bubble">
+          <div id="typer"></div>
+        </div>
+        <button class="btn" id="welcomeNext" hidden>Chalo shuru karte hain ✨</button>
+      </div>
+    </section>
+
+    <!-- ============ 2. DECORATION ============ -->
+    <section class="scene scene-decor" id="decor">
+      <div class="room" id="room">
+        <div class="streamers" id="streamers"></div>
+        <div class="bunting" id="bunting1"></div>
+        <div class="bunting second" id="bunting2"></div>
+        <div class="fairy" id="fairy"></div>
+        <div class="neon" data-t>{nick} 🎀</div>
+        <div class="balloons" id="balloons"></div>
+        <div class="floor"><span>🎁</span><span>🧸</span><span>💐</span><span>🎁</span><span>🍫</span></div>
+      </div>
+      <div class="darkness" id="darkness">
+        <div class="cord" id="cord"><i></i><b>💡</b></div>
+        <p class="dark-hint">Andhera hai... light ki dori kheencho 💡</p>
+      </div>
+      <div class="decor-ui">
+        <div class="pop-counter" id="popCount" hidden></div>
+        <p class="tag-line" id="decorLine" hidden></p>
+        <button class="btn" id="decorNext" hidden>Ab cake ka time 🎂</button>
+      </div>
+    </section>
+
+    <!-- ============ 3. CAKE ============ -->
+    <section class="scene scene-cake" id="cake">
+      <div class="wrap center">
+        <h2 class="step-title" id="cakeTitle">Pehle candles jalao 🕯️</h2>
+        <div class="cake-stage" id="cakeStage">
+          <svg id="cakeSvg" viewBox="0 0 340 320" xmlns="http://www.w3.org/2000/svg"></svg>
+          <div class="knife" id="knife">
+            <svg viewBox="0 0 34 150">
+              <rect x="12" y="0" width="10" height="46" rx="5" fill="#ff4d94" />
+              <rect x="6" y="44" width="22" height="7" rx="3.5" fill="#ffd27a" />
+              <path d="M8 51 H26 V132 Q26 146 17 148 Q8 146 8 132 Z" fill="#f4f7fb" stroke="#c7d0dc"
+                stroke-width="1.5" />
+            </svg>
+          </div>
+          <div class="slice-note" id="sliceNote" hidden>Pehla piece tumhare liye 🍰💗</div>
+        </div>
+        <p class="cake-hint" id="cakeHint">Har candle pe tap karo</p>
+        <div class="cake-actions">
+          <button class="btn blow" id="blowBtn" hidden>🌬️ Phoonk maaro (hold karo)</button>
+          <button class="btn" id="cutBtn" hidden>🔪 Cake kaato</button>
+          <button class="btn" id="cakeNext" hidden>Hamari kahani dekho 💌</button>
+        </div>
+        <div class="wish" id="wish" hidden>
+          <p>Aankhein band karo<br>aur ek pyaari si wish maango 🤍</p>
+          <div class="wish-count" id="wishCount">3</div>
+        </div>
+        <div class="big-hb" id="bigHB" hidden data-t>Happy Birthday<br>{nick}! 🎉</div>
+      </div>
+    </section>
+
+    <!-- ============ 4. STORY ============ -->
+    <section class="scene scene-scroll" id="story">
+      <div class="wrap">
+        <h2 class="title-script">Hamari Kahani</h2>
+        <p class="sub">do dil, do shehar, ek kahani 💞</p>
+        <div class="distance">
+          <div class="pin" id="pinHim"></div>
+          <div class="route"><span class="traveler">💗</span><span class="plane">✈️</span></div>
+          <div class="pin" id="pinHer"></div>
+        </div>
+        <div class="timeline" id="timeline"></div>
+        <div class="stats" id="stats"></div>
+        <button class="btn center-btn" id="storyNext">Photos dekho 📸</button>
+      </div>
+    </section>
+
+    <!-- ============ 5. GALLERY ============ -->
+    <section class="scene scene-scroll" id="gallery">
+      <div class="wrap">
+        <h2 class="title-script">Hamari Yaadein</h2>
+        <p class="sub">kisi bhi photo pe tap karo, peeche kuch likha hai 💌</p>
+        <div class="wall" id="wall"></div>
+        <button class="btn center-btn" id="galleryNext">Games khelein 🎮</button>
+      </div>
+    </section>
+
+    <!-- ============ 6. GAMES ============ -->
+    <section class="scene scene-scroll" id="games">
+      <div class="wrap">
+        <h2 class="title-script">Birthday Games</h2>
+        <p class="sub">khelo, jeeto aur surprises kholo 🎮</p>
+        <div class="game-grid" id="gameGrid"></div>
+        <p class="sub small" id="gameProgress"></p>
+        <button class="btn center-btn" id="gamesNext">Love letter padho 💌</button>
+      </div>
+      <div class="panel" id="panel" hidden>
+        <div class="panel-card">
+          <button class="panel-close" id="panelClose" aria-label="Band karo">✕</button>
+          <div id="panelBody"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. LETTER ============ -->
+    <section class="scene scene-scroll" id="letter">
+      <div class="wrap center">
+        <p class="sub top" id="letterHint">Ek chitthi aayi hai tumhare liye 💌</p>
+        <div class="envelope" id="envelope" role="button" aria-label="Chitthi kholo">
+          <div class="env-back"></div>
+          <div class="paper-peek"></div>
+          <div class="env-front"></div>
+          <div class="env-flap"></div>
+          <div class="seal">💗</div>
+        </div>
+        <article class="letter-card" id="letterCard" hidden></article>
+        <button class="btn" id="letterNext" hidden>Ab party shuru! 🥳</button>
+      </div>
+    </section>
+
+    <!-- ============ 8. PARTY ============ -->
+    <section class="scene scene-party" id="party">
+      <div class="spot s1"></div>
+      <div class="spot s2"></div>
+      <div class="spot s3"></div>
+      <div class="disco-wrap">
+        <div class="disco-string"></div>
+        <div class="discoball" id="discoball"></div>
+      </div>
+      <h2 class="neon-title" data-t>Happy Birthday<br>{name} 🎉</h2>
+      <div class="dancers" id="dancers"></div>
+      <div class="floor-grid" id="floorGrid"></div>
+      <div class="eq" id="eq"></div>
+      <div class="party-actions">
+        <button class="btn mini" id="boom">🎊 Confetti</button>
+        <button class="btn mini" id="fw">🎆 Fireworks</button>
+        <button class="btn mini" id="musicBtn">🎵 Music</button>
+      </div>
+      <div class="finale" id="finale" hidden>
+        <p id="finaleText"></p>
+        <div class="finale-btns">
+          <button class="btn mini" id="keepDancing">💃 Aur nachna hai</button>
+          <button class="btn mini" id="replay">🔁 Shuru se dekho</button>
+          <button class="btn mini" id="toLetter">💌 Letter dobara</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- page dots + mute -->
+  <nav id="dots" aria-label="Pages" hidden></nav>
+  <button id="mute" aria-label="Sound on/off" hidden>🔊</button>
+
+  <script src="js/config.js"></script>
+  <script src="js/audio.js"></script>
+  <script src="js/fx.js"></script>
+  <script src="js/scenes.js"></script>
+  <script src="js/games.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
+</html>
